@@ -1,8 +1,8 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { FacebookOutlined, TwitterOutlined, InstagramOutlined, LinkedinOutlined, YoutubeOutlined } from '@ant-design/icons';
-import { Button } from 'antd';
-import './FooterEl.css'; // Ensure you have the corresponding CSS
+import React from "react";
+import { Link } from "react-scroll";
+import { FacebookOutlined, TwitterOutlined, InstagramOutlined, LinkedinOutlined, YoutubeOutlined } from "@ant-design/icons";
+import { Button } from "antd";
+import "./FooterEl.css";
 
 const FooterEl = () => {
   return (
@@ -14,53 +14,51 @@ const FooterEl = () => {
           <div className="footer-column mb-4">
             <h5 className="footer-title">About Us</h5>
             <p className="footer-text">
-              Welcome to Brajesh Mishra Classes! We provide exceptional academic support to help students from Class VI to XII excel. With experienced educators, top-notch study materials, and innovative learning methods, we are committed to empowering students for academic success.
+              We specialize in strategic communication, campaign management, crisis management, and digital marketing. Our expert team ensures effective messaging and impactful campaigns.
             </p>
-            <Link to="/">
-              <Button className="footer-button" type="primary" shape="round">Learn More</Button>
+            <Link to="our-services" smooth={true} duration={500}>
+              <Button className="footer-button" type="primary" shape="round">Our Services</Button>
             </Link>
           </div>
 
-          {/* Column 2: Quick Links - Courses */}
+          {/* Column 2: Quick Links */}
           <div className="footer-column mb-4">
-            <h5 className="footer-title">Our Courses</h5>
+            <h5 className="footer-title">Quick Links</h5>
             <ul className="footer-list">
-              <li><Link to="/">Mathematics</Link></li>
-              <li><Link to="/">Science</Link></li>
-              <li><Link to="/">English</Link></li>
-              <li><Link to="/">Social Studies</Link></li>
-              <li><Link to="/">Computer Science</Link></li>
-              <li><Link to="/">Coaching Programs</Link></li>
+              <li><Link to="hero" smooth={true} duration={500}>About Us</Link></li>
+              <li><Link to="vision-statement" smooth={true} duration={500}>Vision</Link></li>
+              <li><Link to="our-team" smooth={true} duration={500}>Our Team</Link></li>
+              <li><Link to="our-services" smooth={true} duration={500}>Services</Link></li>
+              <li><Link to="budget-section" smooth={true} duration={500}>Budget</Link></li>
+              <li><Link to="budget-breakdown" smooth={true} duration={500}>Budget Breakdown</Link></li>
             </ul>
           </div>
 
-          {/* Column 3: Resources */}
+          {/* Column 3: Budget & Offerings */}
           <div className="footer-column mb-4">
-            <h5 className="footer-title">Resources</h5>
+            <h5 className="footer-title">Our Budget</h5>
             <ul className="footer-list">
-              <li><Link to="/">Blog</Link></li>
-              <li><Link to="/">Testimonials</Link></li>
-              <li><Link to="/">FAQs</Link></li>
-              <li><Link to="/contact-us">Contact Us</Link></li>
-              <li><Link to="/">Gallery</Link></li>
-              <li><Link to="/enroll-now">Enroll Now</Link></li>
+              <li>Video Editor: ₹_ _ _ _ /Month</li>
+              <li>Graphic Designer: ₹_ _ _ _ /Month</li>
+              <li>Content Writer: ₹_ _ _ _ /Month</li>
+              <li>LED Van: ₹_ _ _ _ /Day</li>
+              <li>Bulk Messages: ₹_ _ _ _ /-</li>
             </ul>
           </div>
 
           {/* Column 4: Contact & Social Links */}
           <div className="footer-column mb-4">
             <h5 className="footer-title">Contact Us</h5>
-            <p><strong>Address:</strong> SOHRAI BHAWAN, NEAR INDRA DARBAR SAKET VIHAR, RANCHI, JHARKHAND</p>
-            <p><strong>Phone:</strong> +91 7488743923</p>
-            <p><strong>Email:</strong> <a href="mailto:contact@brjeshmishraclasses.in">contact@brajeshmishraclasses@gmail.com</a></p>
-
+            <p><strong>Email:</strong> <a href="mailto:info@swadshree.com">contact@thevoice.in</a></p>
+            <p><strong>Phone:</strong> +91 73499 09831</p>
+            
             <h5 className="footer-title mt-4">Follow Us</h5>
             <div className="social-icons">
-              <a href="https://www.webitya.com" target="_blank" rel="noopener noreferrer"><FacebookOutlined /></a>
-              <a href="https://www.webitya.com" target="_blank" rel="noopener noreferrer"><TwitterOutlined /></a>
-              <a href="https://www.webitya.com" target="_blank" rel="noopener noreferrer"><LinkedinOutlined /></a>
-              <a href="https://www.webitya.com" target="_blank" rel="noopener noreferrer"><InstagramOutlined /></a>
-              <a href="https://www.webitya.com"target="_blank" rel="noopener noreferrer"><YoutubeOutlined /></a>
+              <a href="https://www.instagram.com/ram_pandey_55?igsh=NTc4MTIwNjQ2YQ==" target="_blank" rel="noopener noreferrer"><FacebookOutlined /></a>
+              <a href="https://www.instagram.com/ram_pandey_55?igsh=NTc4MTIwNjQ2YQ==" target="_blank" rel="noopener noreferrer"><TwitterOutlined /></a>
+              <a href="https://www.instagram.com/ram_pandey_55?igsh=NTc4MTIwNjQ2YQ==" target="_blank" rel="noopener noreferrer"><LinkedinOutlined /></a>
+              <a href="https://www.instagram.com/ram_pandey_55?igsh=NTc4MTIwNjQ2YQ==" target="_blank" rel="noopener noreferrer"><InstagramOutlined /></a>
+              <a href="https://www.instagram.com/ram_pandey_55?igsh=NTc4MTIwNjQ2YQ==" target="_blank" rel="noopener noreferrer"><YoutubeOutlined /></a>
             </div>
           </div>
 
@@ -68,7 +66,7 @@ const FooterEl = () => {
       </div>
 
       <div className="footer-bottom">
-        <p>Copyright &copy; 2024 Brajesh Mishra Classes. All Rights Reserved Developed by <Link to="https://www.webitya.com" target='_blank'><b>Webitya</b></Link></p>
+        <p>Copyright &copy; 2025 The Voice. All Rights Reserved. Developed by <a href="https://www.webitya.com" target='_blank' rel="noopener noreferrer"><b>Webitya</b></a></p>
       </div>
     </footer>
   );

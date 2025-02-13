@@ -1,147 +1,180 @@
 import {
-    FacebookOutlined,
-    InstagramOutlined,
-    LinkedinOutlined,
-    MenuOutlined,
-    PhoneOutlined,
-    XOutlined,
-    YoutubeOutlined,
-    MailOutlined,
-    DotChartOutlined,
-    YoutubeFilled,
-  } from "@ant-design/icons";
-  import { Button, Drawer } from "antd";
-  import { useState, useEffect } from "react";
-  import { Link } from "react-router-dom";
-  import "./Navbar.css";
-  
-  const NavbarEl = () => {
-    const [openMenu, setOpenMenu] = useState(false);
-    const [NavBar, setNavBar] = useState("relative");
-  
-    const sticky = () => {
-      let scrollTop = window.scrollY;
-      if (scrollTop > 200) {
-        setNavBar("fixed");
-      } else {
-        setNavBar("relative");
-      }
-    };
-    
-    window.addEventListener('scroll', sticky);
-  
-    const display = (
-      <>
-        <div className="flex justify-between items-center px-3 py-3 bg-white shadow-lg navBarTop w-100" style={{ position: NavBar }}>
-          <div>
-            <Link to="/">
-              {/* <img src="/logo111.svg" width="100px" alt="" /> */}
-              <h2 className="text-2xl font-bold">Barjesh Mishra Classes</h2>
-            </Link>
-          </div>
-          <div className="desktopMenu">
-            <ul className="flex gap-4 items-center justify-center text-zinc-700">
-              <li><Link to="/">Home</Link></li>
-              <li><Link to="/courses">Courses</Link></li>
-              <li><Link to="/facilities">Facilities</Link></li>
-              <li><Link to="/toppers">Toppers</Link></li>
-              <li><Link to="/notes">Notes</Link></li>
-              <li className="live-lectures">
-          <Link to="/live-lectures" className="flex gap-1 items-center">
-            Live Lectures
-            <span className="live-dot">
-              <YoutubeFilled className="text-red-500" />
-            </span>
-          </Link>
-        </li>
-              <li><Link to="/contact-us">Contact Us</Link></li>
-              <li>
-                <Link to="/enroll-now">
-                  <Button
-                    className="bg-gradient-to-r from-green-400 to-blue-500 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
-                    style={{
-                      padding: "15px 20px",
-                      display: "flex",
-                      alignItems: "center",
-                      gap: "10px",
-                    }}
-                  >
-                    ENROLL NOW
-                  </Button>
-                </Link>
-              </li>
-            </ul>
-          </div>
-          <div className="HamburgerDiv">
-            <MenuOutlined className="hamburgerIcon" onClick={() => setOpenMenu(true)} />
-          </div>
-          <Drawer open={openMenu} onClose={() => setOpenMenu(false)} closable>
-            <div>
-              {/* <img src="/logo111.svg" width="130px" alt="" /> */}
-              <h2 className="text-2xl font-bold">BRJESH MISHRA CLASSES</h2>
-            </div>
-            <div className="drawerNav">
-              <ul>
-                <li onClick={() => setOpenMenu(false)}><Link to="/">Home</Link></li>
-                <li onClick={() => setOpenMenu(false)}><Link to="/courses">Courses</Link></li>
-                <li onClick={() => setOpenMenu(false)}><Link to="/facilities">Facilities</Link></li>
-                <li onClick={() => setOpenMenu(false)}><Link to="/toppers">Toppers</Link></li>
-                <li><Link to="/notes">Notes</Link></li>
-              <li className="live-lectures">
-          <Link to="/live-lectures" className="flex gap-1 items-center">
-            Live Lectures
-            <span className="live-dot">
-              <YoutubeFilled className="text-red-500" />
-            </span>
-          </Link>
-        </li>
-                <li onClick={() => setOpenMenu(false)}><Link to="/contact-us">Contact Us</Link></li>
-                <li>
-                  <Link to="/enroll-now">
-                    <Button
-                      className="bg-gradient-to-r from-green-400 to-blue-500 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
-                      style={{
-                        padding: "15px 20px",
-                        display: "flex",
-                        alignItems: "center",
-                        gap: "10px",
-                      }}
-                    >
-                      ENROLL NOW
-                    </Button>
-                  </Link>
-                </li>
-                <li className="flex gap-2">
-                  <Link to="#"><Button className="text-pink-500"><InstagramOutlined /></Button></Link>
-                  <Link to="#"><Button className="text-black"><XOutlined /></Button></Link>
-                  <Link to="#"><Button className="text-blue-400"><LinkedinOutlined /></Button></Link>
-                  <Link to="#"><Button className="text-red-600"><YoutubeOutlined /></Button></Link>
-                  <Link to="#"><Button className="text-blue-700"><FacebookOutlined /></Button></Link>
-                </li>
-                <li>
-                  <h1>
-                    <b><PhoneOutlined className="text-green-900" /> Phone: </b><span>+91 7488743923</span>
-                  </h1>
-                </li>
-                <li>
-                  <h1>
-                    <b><MailOutlined className="text-blue-700" /> Email: </b><span>contact@brjeshmishraclasses.in</span>
-                  </h1>
-                </li>
-                <li>
-                  <h1>
-                    <b>Address: </b><span>SOHRAI BHAWAN, NEAR INDRA DARBAR SAKET VIHAR, RANCHI, JHARKHAND</span>
-                  </h1>
-                </li>
-              </ul>
-            </div>
-          </Drawer>
-        </div>
-      </>
-    );
-  
-    return display;
+  FacebookOutlined,
+  InstagramOutlined,
+  LinkedinOutlined,
+  MenuOutlined,
+  PhoneOutlined,
+  XOutlined,
+  YoutubeOutlined,
+  MailOutlined,
+} from "@ant-design/icons";
+import { Button, Drawer } from "antd";
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import "./Navbar.css";
+
+const NavbarEl = () => {
+  const [openMenu, setOpenMenu] = useState(false);
+  const [NavBar, setNavBar] = useState("relative");
+
+  const sticky = () => {
+    let scrollTop = window.scrollY;
+    setNavBar(scrollTop > 200 ? "fixed" : "relative");
   };
-  
-  export default NavbarEl;
-  
+
+  useEffect(() => {
+    window.addEventListener("scroll", sticky);
+    return () => window.removeEventListener("scroll", sticky);
+  }, []);
+
+  const scrollToSection = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth", block: "start" });
+      setOpenMenu(false); // Close drawer after clicking
+    }
+  };
+
+  return (
+    <div
+      className="flex justify-between items-center px-3 py-3 bg-white shadow-lg navBarTop w-100"
+      style={{ position: NavBar }}
+    >
+      <div>
+        <Link to="/" className="flex justify-center items-center gap-1">
+          <img src="/voice.png" width="45px" />
+          <h2 className="text-2xl font-bold">THE VOICE</h2>
+        </Link>
+      </div>
+
+      <div className="desktopMenu">
+        <ul className="flex gap-4 items-center justify-center text-zinc-700">
+        <li>
+            <button onClick={() => scrollToSection("vision-statement")}>Vision Statement</button>
+          </li>
+          <li>
+            <button onClick={() => scrollToSection("our-services")}>Our Services</button>
+          </li>
+          <li>
+            <button onClick={() => scrollToSection("our-team")}>Our Team</button>
+          </li>
+         
+          <li>
+            <button onClick={() => scrollToSection("budget-section")}>Budget Section</button>
+          </li>
+          
+          <li>
+            <button onClick={() => scrollToSection("budget-breakdown")}>Budget Breakdown</button>
+          </li>
+          <li>
+ {/* ====== */}
+ <a href="tel:+917349909831">
+  <button 
+    className="relative bg-gray-200 text-gray-800 font-semibold px-3 py-1  shadow-[4px_4px_10px_rgba(0,0,0,0.15),-4px_-4px_10px_rgba(255,255,255,0.7)] border border-gray-300 transition-all hover:shadow-lg active:scale-95"
+  >
+    {/* Four corner nails */}
+    <div className="absolute w-1 h-1 bg-gray-400 rounded-full top-1 left-1 shadow-sm"></div>
+    <div className="absolute w-1 h-1 bg-gray-400 rounded-full top-1 right-1 shadow-sm"></div>
+    <div className="absolute w-1 h-1 bg-gray-400 rounded-full bottom-1 left-1 shadow-sm"></div>
+    <div className="absolute w-1 h-1 bg-gray-400 rounded-full bottom-1 right-1 shadow-sm"></div>
+
+    +91 73499 09831
+  </button>
+</a>
+
+ {/* ======== */}
+
+          </li>
+        </ul>
+      </div>
+
+      <div className="HamburgerDiv">
+        <MenuOutlined className="hamburgerIcon" onClick={() => setOpenMenu(true)} />
+      </div>
+
+      <Drawer open={openMenu} onClose={() => setOpenMenu(false)} closable>
+        <div>
+        <img src="/voice.png" width="55px" />
+        </div>
+        <div className="drawerNav">
+          <ul>
+           
+          <li onClick={() => scrollToSection("vision-statement")}>Vision Statement</li>
+            <li onClick={() => scrollToSection("our-services")}>Our Services</li>
+            <li onClick={() => scrollToSection("our-team")}>Our Team</li>
+            <li onClick={() => scrollToSection("budget-section")}>Budget Section</li>
+           
+            <li onClick={() => scrollToSection("budget-breakdown")}>Budget Breakdown</li>
+            <li>
+            <a href="tel:+917349909831">
+  <button 
+    className="relative bg-gray-200 text-gray-800 font-semibold px-3 py-1  shadow-[4px_4px_10px_rgba(0,0,0,0.15),-4px_-4px_10px_rgba(255,255,255,0.7)] border border-gray-300 transition-all hover:shadow-lg active:scale-95"
+  >
+    {/* Four corner nails */}
+    <div className="absolute w-1 h-1 bg-gray-400 rounded-full top-1 left-1 shadow-sm"></div>
+    <div className="absolute w-1 h-1 bg-gray-400 rounded-full top-1 right-1 shadow-sm"></div>
+    <div className="absolute w-1 h-1 bg-gray-400 rounded-full bottom-1 left-1 shadow-sm"></div>
+    <div className="absolute w-1 h-1 bg-gray-400 rounded-full bottom-1 right-1 shadow-sm"></div>
+
+    +91 73499 09831
+  </button>
+</a>
+
+            </li>
+            <li className="flex gap-2 mt-4">
+              <Link to="https://www.instagram.com/ram_pandey_55?igsh=NTc4MTIwNjQ2YQ==">
+                <Button className="text-pink-500">
+                  <InstagramOutlined />
+                </Button>
+              </Link>
+              <Link to="https://www.instagram.com/ram_pandey_55?igsh=NTc4MTIwNjQ2YQ==">
+                <Button className="text-black">
+                  <XOutlined />
+                </Button>
+              </Link>
+              <Link to="https://www.instagram.com/ram_pandey_55?igsh=NTc4MTIwNjQ2YQ==">
+                <Button className="text-blue-400">
+                  <LinkedinOutlined />
+                </Button>
+              </Link>
+              <Link to="https://www.instagram.com/ram_pandey_55?igsh=NTc4MTIwNjQ2YQ==">
+                <Button className="text-red-600">
+                  <YoutubeOutlined />
+                </Button>
+              </Link>
+              <Link to="https://www.instagram.com/ram_pandey_55?igsh=NTc4MTIwNjQ2YQ==">
+                <Button className="text-blue-700">
+                  <FacebookOutlined />
+                </Button>
+              </Link>
+            </li>
+            <li className="mt-4">
+              <h1>
+                <b>
+                  <PhoneOutlined className="text-green-900" /> Phone:
+                </b>{" "}
+                <span>+91 73499 09831</span>
+              </h1>
+            </li>
+            <li>
+              <h1>
+                <b>
+                  <MailOutlined className="text-blue-700" /> Email:
+                </b>{" "}
+                <span>contact@thevoice.in</span>
+              </h1>
+            </li>
+            <li>
+              <h1>
+                <b>Address:</b>{" "}
+                <span>RANCHI 834002, JHARKHAND</span>
+              </h1>
+            </li>
+          </ul>
+        </div>
+      </Drawer>
+    </div>
+  );
+};
+
+export default NavbarEl;
