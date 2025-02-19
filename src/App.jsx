@@ -11,6 +11,7 @@ const App=()=>{
        <Routes>
         <Route path="/" element={<Homepage/>}/>
         <Route path="/contact-us" element={<ContactUs/>}/>
+       
        </Routes>
        {/* <Tawk/> */}
        </BrowserRouter>
